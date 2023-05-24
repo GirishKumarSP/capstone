@@ -14,7 +14,9 @@
 }
 
 .list li {
-    margin: 8px 14px;
+    margin: 20px 14px;
+    padding-left: 6px;
+    align-self: center;
     font-weight: bold
 }
 
