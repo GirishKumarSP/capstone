@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.list {
+    list-style: none;
+    padding-left: 0px;
+    display: flex
+}
+
+.list a {
+    text-decoration: none;
+}
+
+.list li {
+    margin: 8px 14px;
+    font-weight: bold
+}
+
+.navbar img {
+    height: 0px;
+    width: 0px;
+    visibility: hidden
+}
+
+@media (min-width: 600px) {
+    .navbar {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar img {
+        height: 70px;
+        width: 140px;
+        margin-right: 10px;
+        visibility: visible
+    }
+}
