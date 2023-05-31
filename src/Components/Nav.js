@@ -9,7 +9,7 @@ function Nav() {
       <ul className='list'>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
-        <li><a href="/">Reservation</a></li>
+        <li><Link to="/reservation">Reservation</Link></li>
         <li><a href="/">Order</a></li>
         <li><a href="/">Login</a></li>
 

@@ -55,7 +55,8 @@
 .text button{
     padding: 0.8rem;
     border-radius: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 0.8rem;
+    color: black;
     background-color: yellow
 }
 
