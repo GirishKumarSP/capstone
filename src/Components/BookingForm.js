@@ -13,11 +13,24 @@ function BookingForm(props) {
     // const handleDateChange = (event) => {
     //     setDate(event.target.value)
     // }
+
+    // my code
+    // ---------------
+    // const handleDateChange = (event) => {
+    //     const selectedDate = event.target.value;
+    //     console.log(selectedDate)
+    //     setDate(selectedDate);
+    //     dispatch({ type: 'UPDATE_TIMES', times: date }); // Modify this logic to update available times based on the selected date
+    // }
+    // --------------
+
     const handleDateChange = (event) => {
-        const selectedDate = event.target.value;
-        setDate(selectedDate);
-        dispatch({ type: 'UPDATE_TIMES', times: availableTimes }); // Modify this logic to update available times based on the selected date
-    }
+        const selectedDate = `"${event.target.value}"`;
+        const finalDate = new Date(selectedDate);
+        setDate(event.target.value);
+
+        dispatch({ type: 'UPDATE_TIMES', date: finalDate });
+      };
 
     const handleTimeChange = (event) => {
         setTime(event.target.value)
