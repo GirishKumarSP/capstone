@@ -1,0 +1,92 @@
+.bookingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Update to 80% of the viewport height */
+    width: 80%; /* Update to 80% of the viewport width */
+    border: 2px solid #000; /* Increase border thickness to make it bold */
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 200px auto 80px auto;
+  }
+  
+  .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  form {
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box; /* Add box-sizing property */
+  }
+  
+  label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="date"],
+  select,
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Add box-sizing property */
+  }
+  
+  input[type="submit"] {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3367d6;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .bookingContainer {
+      flex-direction: column;
+      height: auto;
+      width: 90%;
+      margin: 200px auto 80px auto;
+    }
+    
+    .left, .right {
+      flex: none;
+      width: 100%;
+    }
+    
+    form {
+      max-width: 100%;
+    }
+
+    .bookingDescription{
+        display: none;
+    }
+  }
+  

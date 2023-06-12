@@ -3,14 +3,10 @@ import BookingForm from './BookingForm'
 import { fetchAPI } from './Api';
 
 
-
 export function updateTimes(state, action) { //updateTimes as in instrcution
     switch (action.type) {
         case 'UPDATE_TIMES':
-            // Modify this logic to update available times based on the selected date
-            // return action.times;
             const submissionResult = fetchAPI(action.date);
-            // return submitAPI(action.date);
             return submissionResult
         default:
             return state;
@@ -21,7 +17,6 @@ export function updateTimes(state, action) { //updateTimes as in instrcution
 export function initializeTimes() {
     const today = new Date();
     const apiData = fetchAPI(today);
-    // console.log(today)
     return apiData;
   }
 
