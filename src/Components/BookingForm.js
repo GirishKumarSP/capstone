@@ -29,6 +29,11 @@ function BookingForm(props) {
         setOccasion(event.target.value)
     }
 
+    const handleSumbit = (e) => {
+        e.preventDefault();
+        props.submitForm(e);
+    };
+
     return (
         <div className="bookingContainer">
             <div className="left">
@@ -36,13 +41,13 @@ function BookingForm(props) {
                 <p className='bookingDescription'>Embark on a remarkable journey of personalized service and remarkable experiences, as we redefine the art of booking and cater to your every desire.</p>
             </div>
             <div className="right">
-                <form className="booking-form">
+                <form className="booking-form" onSubmit={handleSumbit}>
 
                     <label htmlFor="res-date">Choose date</label>
-                    <input type="date" id="res-date" value={date} onChange={handleDateChange} />
+                    <input type="date" id="res-date" value={date} onChange={handleDateChange} required/>
 
                     <label htmlFor="res-time">Choose time</label>
-                    <select id="res-time" value={time} onChange={handleTimeChange}>
+                    <select id="res-time" value={time} onChange={handleTimeChange} >
                         {availableTimes && availableTimes.map((timeOption) => (
                             <option key={timeOption}>{timeOption}</option>
                         ))}
@@ -57,7 +62,9 @@ function BookingForm(props) {
                         <option>Anniversary</option>
                     </select>
 
+                    {/* <Link to="/reservationConfirmation"> */}
                     <input type="submit" value="Make Your reservation" />
+                    {/* </Link> */}
 
                 </form>
             </div>
