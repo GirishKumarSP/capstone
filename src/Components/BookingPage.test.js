@@ -5,12 +5,12 @@ describe('initializeTimes', () => {
   test('returns the correct array of times', () => {
     const expectedTimes = [
       '17:00',
+      '17:30',
       '18:00',
-      '19:00',
-      '20:00',
-      '21:00',
+      '18:30',
       '22:00',
-      '23:00'
+      '22:30',
+      '23:30'
     ];
     const times = initializeTimes();
 
@@ -23,7 +23,8 @@ import { updateTimes } from './BookingPage';
 describe('updateTimes', () => {
   test('returns the same value provided in the state', () => {
     const state = ['17:00', '18:00', '19:00'];
-    const action = { type: 'UPDATE_TIMES', times: ['20:00', '21:00', '22:00'] };
+    const today = new Date();
+    const action = { type: 'UPDATE_TIMES', date: today, times: ["17:00", "17:30", "18:00", "18:30", "22:00", "22:30", "23:30"]};
 
     const updatedState = updateTimes(state, action);
 
