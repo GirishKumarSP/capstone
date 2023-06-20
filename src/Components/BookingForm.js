@@ -6,6 +6,7 @@ function BookingForm(props) {
     const [time, setTime] = useState('');
     const [seating, setSeating] = useState('');
     const [occasion, setOccasion] = useState("birthday")
+    const [formValid, setFormValid] = useState(false);
 
     const { availableTimes, dispatch } = props;
 
@@ -13,25 +14,44 @@ function BookingForm(props) {
         const selectedDate = `"${event.target.value}"`;
         const finalDate = new Date(selectedDate);
         setDate(event.target.value);
-
         dispatch({ type: 'UPDATE_TIMES', date: finalDate });
+        validateForm();
     };
 
     const handleTimeChange = (event) => {
-        setTime(event.target.value)
+        setTime(event.target.value);
+        validateForm();
     }
 
     const handleSeatingChange = (event) => {
-        setSeating(event.target.value)
+        setSeating(event.target.value);
+        validateForm();
     }
 
     const handleOccasionChange = (event) => {
-        setOccasion(event.target.value)
+        setOccasion(event.target.value);
+        validateForm();
     }
 
     const handleSumbit = (e) => {
         e.preventDefault();
         props.submitForm(e);
+        // Process the form data or make an API request
+        console.log('Form submitted:', { date, time, seating, occasion });
+        // Reset the form fields
+        setDate('');
+        setTime('');
+        setSeating('');
+        setOccasion('');
+        setFormValid(false);
+    };
+
+    const validateForm = () => {
+        if (date && time && seating && occasion) {
+            setFormValid(true);
+        } else {
+            setFormValid(false);
+        }
     };
 
     return (
@@ -44,28 +64,27 @@ function BookingForm(props) {
                 <form className="booking-form" onSubmit={handleSumbit}>
 
                     <label htmlFor="res-date">Choose date</label>
-                    <input type="date" id="res-date" value={date} onChange={handleDateChange} required/>
+                    <input type="date" id="res-date" value={date} onChange={handleDateChange} required />
 
                     <label htmlFor="res-time">Choose time</label>
-                    <select id="res-time" value={time} onChange={handleTimeChange} >
+                    <select id="res-time" value={time} onChange={handleTimeChange} required>
+                        <option value="">Select a time</option>
                         {availableTimes && availableTimes.map((timeOption) => (
                             <option key={timeOption}>{timeOption}</option>
                         ))}
                     </select>
 
                     <label htmlFor="guests">Number of guests</label>
-                    <input type="number" placeholder="1" min="1" max="10" id="guests" value={seating} onChange={handleSeatingChange} />
+                    <input type="number" placeholder="0" min="1" max="10" id="guests" value={seating} onChange={handleSeatingChange} required />
 
                     <label htmlFor="occasion">Occasion</label>
-                    <select id="occasion" value={occasion} onChange={handleOccasionChange}>
+                    <select id="occasion" value={occasion} onChange={handleOccasionChange} required>
+                        <option value="">Select an occasion</option>
                         <option>Birthday</option>
                         <option>Anniversary</option>
                     </select>
 
-                    {/* <Link to="/reservationConfirmation"> */}
-                    <input type="submit" value="Make Your reservation" />
-                    {/* </Link> */}
-
+                    <input type="submit" value="Make Your reservation" disabled={!formValid} />
                 </form>
             </div>
         </div>

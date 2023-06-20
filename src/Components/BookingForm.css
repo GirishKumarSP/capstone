@@ -66,6 +66,10 @@
   input[type="submit"]:hover {
     background-color: #3367d6;
   }
+
+  input[type="submit"]:disabled {
+    background-color: gray;
+  }
   
   /* Media Queries */
   @media (max-width: 768px) {
