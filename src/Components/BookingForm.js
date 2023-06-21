@@ -67,7 +67,7 @@ function BookingForm(props) {
                     <input type="date" id="res-date" value={date} onChange={handleDateChange} required />
 
                     <label htmlFor="res-time">Choose time</label>
-                    <select id="res-time" value={time} onChange={handleTimeChange} required>
+                    <select type="time" id="res-time" value={time} onChange={handleTimeChange} required>
                         <option value="">Select a time</option>
                         {availableTimes && availableTimes.map((timeOption) => (
                             <option key={timeOption}>{timeOption}</option>
@@ -78,7 +78,7 @@ function BookingForm(props) {
                     <input type="number" placeholder="0" min="1" max="10" id="guests" value={seating} onChange={handleSeatingChange} required />
 
                     <label htmlFor="occasion">Occasion</label>
-                    <select id="occasion" value={occasion} onChange={handleOccasionChange} required>
+                    <select type="select" id="occasion" value={occasion} onChange={handleOccasionChange} required>
                         <option value="">Select an occasion</option>
                         <option>Birthday</option>
                         <option>Anniversary</option>
